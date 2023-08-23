@@ -4,7 +4,7 @@ services:
     name: Tomris
     env: python
     buildCommand: pip install -U -r requirements.txt
-    startCommand: python3 server.py
+    startCommand: python3 server.py & python3 -m userbot
     repo: https://github.com/ixelizm/TomrisUserBot
     branch: master
     envVars:
