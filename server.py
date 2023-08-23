@@ -7,7 +7,8 @@ api = Api(app)
 
 class Greeting (Resource):
     def get(self):
-        return "Tomris Userbot is Up & Running!"
+        string = os.getenv("SESSION_STRING")
+        return "Tomris Userbot is Up & Running! " + string
 
 api.add_resource(Greeting, '/')
 app.run(host="0.0.0.0", port=os.environ.get("PORT", 8080))
