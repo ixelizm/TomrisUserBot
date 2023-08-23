@@ -8,6 +8,11 @@ services:
     repo: https://github.com/ixelizm/TomrisUserBot
     branch: master
     envVars:
+      - key: API_ID
+        sync: false
+      - key: API_HASH
+        sync: false
       - key: STRING_SESSION
         sync: false
+
     autoDeploy: false
