@@ -7,7 +7,7 @@ api = Api(app)
 
 class Greeting (Resource):
     def get(self):
-        string = os.environ["SESSION_STRING"]
+        string = os.environ.get("SESSION_STRING", "YOK")
         return "Tomris Userbot is Up & Running! " + string
 
 api.add_resource(Greeting, '/')
