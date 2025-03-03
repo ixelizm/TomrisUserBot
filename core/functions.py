@@ -1,0 +1,9 @@
+def time_formatter(seconds, short=True):
+    minutes, seconds = divmod(int(seconds), 60)
+    hours, minutes = divmod(minutes, 60)
+    days, hours = divmod(hours, 24)
+    tmp = ((str(days) + (" gün, " if not short else "g, ")) if days else "") + \
+        ((str(hours) + (" saat, " if not short else "s, ")) if hours else "") + \
+        ((str(minutes) + (" dakika, " if not short else "d, ")) if minutes else "") + \
+        ((str(seconds) + (" saniye, " if not short else "s, ")) if seconds else "")
+    return tmp[:-2] + " önce"

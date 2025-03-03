@@ -169,3 +169,7 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+userbot.db
+tomris.session
+tomris.session-journal
+config.env
