@@ -1,4 +1,5 @@
 from telethon.sync import TelegramClient
+from telethon.sessions import StringSession
 from logging import basicConfig, getLogger, INFO
 from telethon.tl.functions.channels import JoinChannelRequest
 from core.database import Environment
@@ -15,8 +16,13 @@ LOGS = getLogger(__name__)
 
 API_KEY = os.environ.get("API_KEY", None)
 API_HASH = os.environ.get("API_HASH", None)
+STRING_SESSION = os.environ.get("STRING_SESSION", None)
+UPSTREAM_URL = "https://tomrisuserbot.org/modules"
 
-bot = TelegramClient("tomris", API_KEY, API_HASH)
+if STRING_SESSION:
+  bot = TelegramClient(StringSession(STRING_SESSION), API_KEY, API_HASH)
+else:
+  bot = TelegramClient("tomris", API_KEY, API_HASH)
 
 with bot:
     try:
@@ -38,11 +44,10 @@ with bot:
         session.add(new)
         session.commit()
         STARTED_TIME = started_time
-        update_init()
+        update_init(UPSTREAM_URL)
     else:
         STARTED_TIME = STARTED_TIME.started_time
     LOGS.info(STARTED_TIME)
-UPSTREAM_URL = "https://tomrisuserbot.org/modules"
 VERSION = "V1.0.0"
 DEFAULT_ALIVE = """
 **[TomrisUserBot](https://t.me/TomrisUserBot)**

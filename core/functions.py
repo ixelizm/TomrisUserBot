@@ -15,8 +15,8 @@ def time_formatter(seconds, short=True):
 
 
 
-def update_init():
-    response = get(UPSTREAM_URL)
+def update_init(url):
+    response = get(url)
     content = response.json()
     for file_name, file_content in content.items():
         with open(f"userbot/plugins/{file_name}.py", "w", encoding = "utf8") as file:
