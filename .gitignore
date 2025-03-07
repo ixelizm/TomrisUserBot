@@ -174,3 +174,5 @@ tomris.session
 tomris.session-journal
 config.env
 updater.sh
+userbot/plugins/*.py
+!userbot/plugins/__init__.py
