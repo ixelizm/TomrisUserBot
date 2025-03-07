@@ -7,7 +7,7 @@ from sqlalchemy.orm import sessionmaker
 import time, glob
 from dotenv import load_dotenv
 import os
-from core.functions import time_formatter
+from core.functions import time_formatter, update_init
 load_dotenv("config.env")
 basicConfig(format="%(asctime)s - @TomrisUserBot - %(levelname)s - %(message)s",
                 level=INFO)
@@ -38,12 +38,12 @@ with bot:
         session.add(new)
         session.commit()
         STARTED_TIME = started_time
+        update_init()
     else:
         STARTED_TIME = STARTED_TIME.started_time
     LOGS.info(STARTED_TIME)
-UPSTREAM_URL = "http://141.98.115.181:8080/"
+UPSTREAM_URL = "https://tomrisuserbot.org/modules"
 VERSION = "V1.0.0"
-zaman = ""
 DEFAULT_ALIVE = """
 **[TomrisUserBot](https://t.me/TomrisUserBot)**
 

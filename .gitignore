@@ -173,3 +173,4 @@ userbot.db
 tomris.session
 tomris.session-journal
 config.env
+updater.sh
